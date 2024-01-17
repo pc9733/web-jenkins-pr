@@ -34,11 +34,11 @@ pipeline{
                 sh "mvn clean package"
             }
         }
-        stage("Test-application"){
-            steps{
-                sh "mvn test"
-            }
-        }
+       //stage("Test-application"){
+       // steps{
+       // sh "mvn test"
+       /// }
+        // }
        //stage("SonarQube Analysis"){
        //    steps {
 	   //        script {
@@ -56,10 +56,10 @@ pipeline{
        //     }
        //
        // }
-            stage('Build Docker Image') {
-              steps{
-              script {
-                sh "whoami"
+    stage('Build Docker Image') {
+        steps{
+            script {
+
                 sh "docker build -t register-app:${BUILD_NUMBER} ."
                 sh "docker images"
               }
